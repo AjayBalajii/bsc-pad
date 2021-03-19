@@ -1,15 +1,14 @@
 //import React from 'react';
 import React, { Component } from 'react';
-import secondpage from './secondpage';
+//import secondpage from './secondpage';
 import './App.css';
 import web3 from './web3';
 import tokencontract from './tokencontract';
 import TESTToken from './TESTToken';
-import TEST from './TEST';
-import {BrowserRouter as Router , Route , Link , Switch , NavLink} from "react-router-dom";
-import home from './home';
+//import TEST from './TEST';
+//import {BrowserRouter as Router , Route , Link , Switch , NavLink} from "react-router-dom";
 
-class App extends Component {
+class home extends Component {
   state = {
     balance: '',
     totalSupply:'',
@@ -27,7 +26,7 @@ class App extends Component {
    
     const balance = await web3.eth.getBalance(tokencontract.options.address);
     const totalsupply = await tokencontract.methods.totalSupply().call();
-    const decimal = await TESTToken.methods.name().call();
+    const decimal = await TESTToken.methods.decimals().call();
   
     const name = await TESTToken.methods.name().call();
     const symbol = await TESTToken.methods.symbol().call();
@@ -43,39 +42,34 @@ class App extends Component {
   render()
    {
     console.log(web3.version);
-    const button= async () =>{
-      window.Location="secondpage.js";
-    }
-    
-
     web3.givenProvider.enable().then(console.log);
     return (
       <div>
-        <div>
-        <Router>
-    <navbar>
-    
-      <Link to="/h">
-      <button>home
-        </button>
-      </Link>
-      <Link exact to="/s">
-      <button>join pool
-        </button>
-      </Link>
-</navbar>
-    <Switch>
-    <Route exact path='/h' component={home}/>
-      <Route  exact path='/s' component={secondpage}/>
-    </Switch>
-    
-  </Router>
-        
-</div>
-</div>
+       
+        <h2>BSC PAD</h2>
+        <p>
+          name <br/> {this.state.name}.
+        </p>
+        <p>
+          symbol <br/> {this.state.symbol}.
+        </p>
+        <p>
+           total supply <br/> {this.state.totalsupply}. 
+        </p>
+
+        <p>
+          balanceOf<br/> {this.state.balance}.
+         </p>
+         <p>
+          decimals <br/> {this.state.decimal}.
+        </p>
+
+        <hr />
+
+        </div>
     );
   }
 }
 
 
-export default App;
+export default home;

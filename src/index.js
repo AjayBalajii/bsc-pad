@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Route, Router } from 'react-router';
+import secondpage from './secondpage';
+//import {BrowserRouter as Link,NavLink,Switch} from "react-router-dom";
+
+
+
 
 ReactDOM.render(
   <React.StrictMode>
