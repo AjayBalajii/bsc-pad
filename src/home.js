@@ -5,6 +5,8 @@ import './App.css';
 import web3 from './web3';
 import tokencontract from './tokencontract';
 import TESTToken from './TESTToken';
+import { Card } from 'react-bootstrap';
+import Background from '../src/images/aa.gif'
 //import TEST from './TEST';
 //import {BrowserRouter as Router , Route , Link , Switch , NavLink} from "react-router-dom";
 
@@ -44,28 +46,42 @@ class home extends Component {
     console.log(web3.version);
     web3.givenProvider.enable().then(console.log);
     return (
-      <div>
-       
-        <h2>BSC PAD</h2>
-        <p>
-          name <br/> {this.state.name}.
-        </p>
-        <p>
-          symbol <br/> {this.state.symbol}.
-        </p>
-        <p>
-           total supply <br/> {this.state.totalsupply}. 
-        </p>
+      <div class="text" style={{backgroundImage:"url("+ Background +")",backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'}}>
+       <br/><br/>
+        <h2 class="head"><b>BSC PAD</b></h2>
+        <br/>
+        <div class="row justify-content-center">
+          <div class="col-9 lg-8">
+          <Card bg="warning" style={{ width: '25rem' , padding: "30px", borderRadius: "8%"}} bodyStyle={{}} >
 
-        <p>
-          balanceOf<br/> {this.state.balance}.
-         </p>
-         <p>
-          decimals <br/> {this.state.decimal}.
-        </p>
+<p>
+  Name <br/> {this.state.name}.
+</p>
+<p>
+  Symbol <br/> {this.state.symbol}.
+</p>
+<p>
+   Total Supply <br/> {this.state.totalsupply}. 
+</p>
 
-        <hr />
 
+ <p>
+  Decimals <br/> {this.state.decimal}.
+</p>
+</Card>
+
+         </div>
+        </div>
+        
+     
+        <br/> 
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
         </div>
     );
   }

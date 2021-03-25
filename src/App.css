@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+body{
+  background-color: #343a40;
+}
+.bg{
+  color:white ;
+  
+
+  background-color:#343a40;
+}
+.text{
+  color: white;
+  font-weight: bolder;
+}
+.head{
+  color: #ffc107;
+  margin-left: 20px;
+  font-size: 50px;
+}
+.btn{
+  border-radius: 24px!important;
+  margin-right: 15px;
+  color: white;
+}
+.card{
+  background-color: #ffc107;
+}

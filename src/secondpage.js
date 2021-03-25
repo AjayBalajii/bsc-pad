@@ -3,12 +3,13 @@ import './App.css';
 import web3 from './web3';
 import ReactDOM from "react-dom";
 import BEP20Token from "./BEP20Token";
-
+import {Card} from "react-bootstrap"
 import tokencontract from './tokencontract';
 import TESTToken from './TESTToken';
 import TEST from './TEST';
 import $, { event, get } from 'jquery';
 import Web3 from 'web3';
+import Background from '../src/images/aa.gif'
 
 
 
@@ -88,42 +89,76 @@ class secondpage extends Component{
 
     web3.givenProvider.enable().then(console.log);
     return (
-      <div>
-       <h1>secondpage</h1>
-        <p>
-          name <br/> {this.state.name}.
-        </p>
-        <p>
-          symbol <br/> {this.state.symbol}.
-        </p>
-        <p>
-           total supply <br/> {this.state.totalsupply}. 
-        </p>
+      <div class="text" style={{backgroundImage:"url("+ Background +")",backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'}}>
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+   integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
 
+        <br/> <br/>
+        <h1 class="head"><b>
+          Join Pool
+          </b>
+
+        </h1>
+        <br/>
+        <table>
+          <div class="row justify-content-center">
+            <div class="col-6">
+            <Card bg="warning" style={{ width: '23rem' , padding: "30px" , borderRadius: "8%" }} >
         <p>
-          balanceOf<br/> {this.state.balance}.
-         </p>
-         <p>
-          decimals <br/> {this.state.decimal}.
+
+Name <br/> {this.state.name}.
+</p>
+<p>
+Symbol <br/> {this.state.symbol}.
+</p>
+<p>
+ Total Supply <br/> {this.state.totalsupply}. 
+</p>
+
+
+        </Card>
+
+            </div>
+            <div class="col-2">
+            <Card bg="warning" style={{ width: '25rem' , padding: "30px",borderRadius: "8%" }} bodyStyle={{}} >
+
+            <p>
+          Decimals <br/> {this.state.decimal}.
         </p>
         <p>
-          balance_BUSD <br/> {this.state.balance_BUSD}.
+          Balance_BUSD <br/> {this.state.balance_BUSD}.
         </p>
         <p>
-          balance_TEST <br/> {this.state.balance_TEST}.
+          Balance_TEST <br/> {this.state.balance_TEST}.
         </p>
-        <div>
-       
+        
+        </Card>
+
+            </div>
+          </div>
+        </table>
+        <br/>   <br/> 
+    
+          <div>
+            <table>
+              <div class="row">
+                <div class="col-6">
+                <button class="btn btn-outline-warning" onClick={approve}>aprove name</button>
+
+                </div>
+                <div class="col-2">
+                <button  onClick={buyTest} class="btn btn-outline-warning " >buy test</button>
+
+                </div>
+              </div>
+            </table>
         </div>
 
-        <div>
-         <button onClick={approve} >aprove name</button>
-         <button onClick={buyTest}>buy test</button>
-        </div>
-
-        <hr />
-
-        </div>
+      
+<br/>
+<br/><br/>   <br/>   </div>
     );
   }
 }

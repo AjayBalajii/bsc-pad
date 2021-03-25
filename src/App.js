@@ -8,6 +8,12 @@ import TESTToken from './TESTToken';
 import TEST from './TEST';
 import {BrowserRouter as Router , Route , Link , Switch , NavLink} from "react-router-dom";
 import home from './home';
+import { Navbar } from 'react-bootstrap';
+import { Button,ButtonGroup } from 'react-bootstrap';
+import Background1 from '../src/images/logo.png'
+
+
+
 
 class App extends Component {
   state = {
@@ -50,21 +56,34 @@ class App extends Component {
 
     web3.givenProvider.enable().then(console.log);
     return (
-      <div>
+      <div class="bg">
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+   integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
+
         <div>
         <Router>
-    <navbar>
+          <Navbar className="bg-dark">
+          <Navbar.Brand href="#home">
+      
+        <img src={Background1} width="30px" height="30px"/>
+        
+      
+    </Navbar.Brand>
+    <Navbar.Collapse className="justify-content-end">
     
       <Link to="/h">
-      <button>home
-        </button>
+      <button class="btn btn-warning rounded-pill"> Connect Wallet</button>
+
       </Link>
       <Link exact to="/s">
-      <button>join pool
-        </button>
-      </Link>
-</navbar>
-    <Switch>
+      <Button variant="outline-warning">Join Pool</Button>{' '}
+            </Link>
+      
+
+      </Navbar.Collapse>
+      </Navbar>
+          <Switch>
     <Route exact path='/h' component={home}/>
       <Route  exact path='/s' component={secondpage}/>
     </Switch>
