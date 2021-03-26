@@ -50,12 +50,10 @@ class App extends Component {
   render()
    {
     console.log(web3.version);
-    const button= async () =>{
-      window.Location="secondpage.js";
-    }
     
-
     web3.givenProvider.enable().then(console.log);
+
+    
     return (
       <div class="bg">
         
@@ -72,11 +70,12 @@ class App extends Component {
       
     </Navbar.Brand>
     <Navbar.Collapse className="justify-content-end">
-      <button class="btn btn-warning">
-      {this.state.accounts}.
-      </button>
-    
-      <Link to="/h">
+<Link>
+<button class="btn btn-warning ">
+  {this.state.accounts}.
+</button>
+</Link>
+      <Link to="/h" >
       <button class="btn btn-warning rounded-pill"> Connect Wallet</button>
 
       </Link>
@@ -93,7 +92,7 @@ class App extends Component {
     </Switch>
     
   </Router>
-        
+    
 </div>
 </div>
     );

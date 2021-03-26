@@ -55,8 +55,8 @@ class home extends Component {
         <h2 class="head"><b>BSC PAD</b></h2>
         <br/>
         <div class="row justify-content-center">
-          <div class="col-9 lg-8">
-          <Card bg="dark" border="warning" style={{ width: '25rem' , padding: "30px", borderRadius: "8%"}} bodyStyle={{}} >
+          <div class="col-8">
+          <Card bg="dark" border="warning" style={{ width: '25rem' , padding: "30px", borderRadius: "8%"}}  >
 
 <p>
   Name <br/> {this.state.name}.
