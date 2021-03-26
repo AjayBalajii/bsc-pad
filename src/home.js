@@ -54,7 +54,7 @@ class home extends Component {
         <br/>
         <div class="row justify-content-center">
           <div class="col-9 lg-8">
-          <Card bg="warning" style={{ width: '25rem' , padding: "30px", borderRadius: "8%"}} bodyStyle={{}} >
+          <Card bg="dark" border="warning" style={{ width: '25rem' , padding: "30px", borderRadius: "8%"}} bodyStyle={{}} >
 
 <p>
   Name <br/> {this.state.name}.

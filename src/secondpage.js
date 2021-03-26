@@ -105,7 +105,7 @@ class secondpage extends Component{
         <table>
           <div class="row justify-content-center">
             <div class="col-6">
-            <Card bg="warning" style={{ width: '23rem' , padding: "30px" , borderRadius: "8%" }} >
+            <Card bg="dark" border="warning" style={{ width: '23rem' , padding: "30px" , borderRadius: "8%" }} >
         <p>
 
 Name <br/> {this.state.name}.
@@ -122,7 +122,7 @@ Symbol <br/> {this.state.symbol}.
 
             </div>
             <div class="col-2">
-            <Card bg="warning" style={{ width: '25rem' , padding: "30px",borderRadius: "8%" }} bodyStyle={{}} >
+            <Card bg="dark" border="warning" style={{ width: '25rem' , padding: "30px",borderRadius: "8%" }} bodyStyle={{}} >
 
             <p>
           Decimals <br/> {this.state.decimal}.
