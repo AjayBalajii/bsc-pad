@@ -34,13 +34,14 @@ class App extends Component {
     const balance = await web3.eth.getBalance(tokencontract.options.address);
     const totalsupply = await tokencontract.methods.totalSupply().call();
     const decimal = await TESTToken.methods.name().call();
-  
+    const accounts = await  web3.eth.getAccounts();
+
     const name = await TESTToken.methods.name().call();
     const symbol = await TESTToken.methods.symbol().call();
 
     //const price=await testtoken.methods.getDollarPrice().call();
   
-    this.setState({totalsupply,balance,name,symbol,decimal});
+    this.setState({totalsupply,balance,name,symbol,decimal,accounts});
 
     
   }
@@ -71,6 +72,9 @@ class App extends Component {
       
     </Navbar.Brand>
     <Navbar.Collapse className="justify-content-end">
+      <button class="btn btn-warning">
+      {this.state.accounts}.
+      </button>
     
       <Link to="/h">
       <button class="btn btn-warning rounded-pill"> Connect Wallet</button>

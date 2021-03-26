@@ -62,3 +62,9 @@ body{
 .card{
   background-color: #ffc107;
 }
+.label{
+  margin-right: 20px;
+  background-color: #ffc107;
+  padding: 7px;
+  border-radius: 57%;
+}
