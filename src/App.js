@@ -70,15 +70,12 @@ class App extends Component {
       
     </Navbar.Brand>
     <Navbar.Collapse className="justify-content-end">
-<Link>
+<Link exact to="/h">
 <button class="btn btn-warning ">
   {this.state.accounts}.
 </button>
 </Link>
-      <Link to="/h" >
-      <button class="btn btn-warning rounded-pill"> Connect Wallet</button>
-
-      </Link>
+      
       <Link exact to="/s">
       <Button variant="outline-warning">Join Pool</Button>{' '}
             </Link>
