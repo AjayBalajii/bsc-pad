@@ -27,7 +27,9 @@ class secondpage extends Component{
     decimal:'',
     balance_BUSD:'',
   balance_TEST:'',
-  setapprove:''
+  setapprove:'',
+  ooc:'',
+  At:''
 
 
   };
@@ -40,14 +42,15 @@ class secondpage extends Component{
     const balance = await web3.eth.getBalance(tokencontract.options.address);
     const totalsupply = await tokencontract.methods.totalSupply().call();
     const decimal = await TESTToken.methods.decimals().call();
-  
+    const ooc = await TEST.methods.isTestOpen().call();
+    const At = await TESTToken.methods.balanceOf("0x9C762c5F1A485d5c6EAaFbf128fe9ED71c908749").call();
     const name = await TESTToken.methods.name().call();
     const symbol = await TESTToken.methods.symbol().call();
     const balance_BUSD = await BEP20Token.methods.balanceOf(accounts[0]).call();
     const balance_TEST= await TESTToken.methods.balanceOf(accounts[0]).call();
 
   
-    this.setState({totalsupply,balance,name,symbol,decimal,balance_TEST,balance_BUSD});
+    this.setState({totalsupply,balance,name,symbol,decimal,balance_TEST,balance_BUSD,ooc,At});
 
     
   }
@@ -83,6 +86,12 @@ class secondpage extends Component{
      this.setState({amount});
     }
 
+    const click= async (event) =>{
+      event.preventDefault();
+
+      document.getElementById("ap").disabled=false;
+
+    }
 
 
    
@@ -117,12 +126,14 @@ Symbol <br/> {this.state.symbol}.
  Total Supply <br/> {this.state.totalsupply}. 
 </p>
 
+  <br/>  <br/>     
+       
 
         </Card>
 
             </div>
             <div class="col-2">
-            <Card bg="dark" border="warning" style={{ width: '25rem' , padding: "30px",borderRadius: "8%" }} bodyStyle={{}} >
+            <Card bg="dark" border="warning" style={{ width: '25rem' , padding: "25px",borderRadius: "8%" }} bodyStyle={{}} >
 
             <p>
           Decimals <br/> {this.state.decimal}.
@@ -133,6 +144,10 @@ Symbol <br/> {this.state.symbol}.
         <p>
           Balance_TEST <br/> {this.state.balance_TEST}.
         </p>
+        <p>
+          Available_Tokens <br/> {this.state.At}.
+        </p>
+        
         
         </Card>
 
@@ -145,11 +160,11 @@ Symbol <br/> {this.state.symbol}.
             <table>
               <div class="row">
                 <div class="col-6">
-                <button class="btn btn-outline-warning" onClick={approve}>aprove name</button>
+                <button class="btn btn-outline-warning" onClick={approve} id="ap" disabled>aprove name</button>
 
                 </div>
                 <div class="col-2">
-                <button  onClick={buyTest} class="btn btn-outline-warning " >buy test</button>
+                <button  onClick={buyTest} class="btn btn-outline-warning " id="buytestbutton" >buy test</button>
 
                 </div>
               </div>
@@ -158,6 +173,13 @@ Symbol <br/> {this.state.symbol}.
 
       
 <br/>
+<div>
+  <p>
+  OpenSlate <br/> {this.state.ooc}.
+
+  </p>
+  <button onClick={click} class="btn btn-outline-warning">check</button>
+</div>
 <br/><br/>   <br/>   </div>
     );
   }

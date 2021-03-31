@@ -75,6 +75,11 @@ class App extends Component {
   {this.state.accounts}.
 </button>
 </Link>
+<Link exact to="/h">
+<button class="btn btn-warning ">
+  Home
+</button>
+</Link>
       
       <Link exact to="/s">
       <Button variant="outline-warning">Join Pool</Button>{' '}
