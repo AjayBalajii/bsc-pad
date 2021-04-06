@@ -29,7 +29,8 @@ class secondpage extends Component{
   balance_TEST:'',
   setapprove:'',
   ooc:'',
-  At:''
+  At:'',
+  value:''
 
 
   };
@@ -56,20 +57,23 @@ class secondpage extends Component{
      
 
      if (ooc==true){
-      document.getElementById("dem").innerHTML = "Open" ;
+      document.getElementById("dem").innerHTML = "Opened" ;
 
-      document.getElementById("ap").disabled=false;
-      document.getElementById("ap1").disabled=false;
-
+      
      }
      else{
       document.getElementById("dem").innerHTML = "Closed" ;
+      document.getElementById("ap").disabled=true;
+      document.getElementById("ap1").disabled=true;
+
 
      }
-     var p=At/100000000000000000;
+     var p=At/5000000000000000000;
+  
      p=p*100;
-     var p1=p.toFixed(2);
      
+     var p1=p.toFixed(4);
+    
 
 
   
@@ -100,13 +104,16 @@ class secondpage extends Component{
       event.preventDefault();
       const accounts = await  web3.eth.getAccounts();
       var amount=window.prompt("enter amount");
+      var v=0;
+      v=v+amount;
       alert(amount);
-      await TEST.methods.buyTest(amount).send(
+      await TEST.methods.click(amount).send(
       {
       from:accounts[0]
       }
      );
-     this.setState({amount});
+     
+     this.setState({v});
     }
 
     
@@ -162,13 +169,13 @@ Symbol <br/> {this.state.symbol}.
           Available_Tokens <br/> {this.state.At}.
         </p>
         <p class="p">Progress (Available Tokens)</p>
-        <progress id="file" value="1999985000000000000" max={this.state.At} class="progress11"></progress>
+        <progress id="file" value={this.state.v+0} max={this.state.At} class="progress11"></progress>
         <div>
           <div class="container">
             <div class="row">
             <div class="col">
             <p class="perci">
-          
+          {this.state.p1}%
         </p>
             </div>
               <div class="col align-self-end">
@@ -194,11 +201,11 @@ Symbol <br/> {this.state.symbol}.
             <table>
               <div class="row">
                 <div class="col-6">
-                <button class="btn btn-outline-warning" onClick={approve} id="ap" disabled>aprove name</button>
+                <button class="btn btn-outline-warning" onClick={approve} id="ap">aprove name</button>
 
                 </div>
                 <div class="col-2">
-                <button  onClick={buyTest} class="btn btn-outline-warning " id="ap1" disabled >buy test</button>
+                <button  onClick={buyTest} class="btn btn-outline-warning " id="ap1" >buy test</button>
 
                 </div>
               </div>
