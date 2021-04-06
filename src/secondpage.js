@@ -44,13 +44,13 @@ class secondpage extends Component{
     const decimal = await TESTToken.methods.decimals().call();
     
     
-    const At = await TESTToken.methods.balanceOf("0x9C762c5F1A485d5c6EAaFbf128fe9ED71c908749").call();
+    const At = await TESTToken.methods.balanceOf("0x03Efaf51AB0F512C0D967f2B951a1A7B18056c9B").call();
     const name = await TESTToken.methods.name().call();
     const symbol = await TESTToken.methods.symbol().call();
     const balance_BUSD = await BEP20Token.methods.balanceOf(accounts[0]).call();
     const balance_TEST= await TESTToken.methods.balanceOf(accounts[0]).call();
 
-    const ooc = await TEST.methods.isTestOpen().call();
+    const ooc = await TEST.methods.isTESTOpen().call();
     
 
      
@@ -83,11 +83,11 @@ class secondpage extends Component{
      const approve = async (event) =>{
       event.preventDefault();
       const accounts = await  web3.eth.getAccounts();
-      await BEP20Token.methods.approve("0x9C762c5F1A485d5c6EAaFbf128fe9ED71c908749","10000000000000000000000000000000").
+      await BEP20Token.methods.approve("0x03Efaf51AB0F512C0D967f2B951a1A7B18056c9B","10000000000000000000000000000000").
       send({
         from: accounts[0]       
       });
-      await TESTToken.methods.approve("0x9C762c5F1A485d5c6EAaFbf128fe9ED71c908749","10000000000000000000000000000").
+      await TESTToken.methods.approve("0x03Efaf51AB0F512C0D967f2B951a1A7B18056c9B","10000000000000000000000000000").
       send({
         from: accounts[0]
        
@@ -162,18 +162,18 @@ Symbol <br/> {this.state.symbol}.
           Available_Tokens <br/> {this.state.At}.
         </p>
         <p class="p">Progress (Available Tokens)</p>
-        <progress id="file" value={this.state.At} max="100000000000000000" class="progress11"></progress>
+        <progress id="file" value="1999985000000000000" max={this.state.At} class="progress11"></progress>
         <div>
           <div class="container">
             <div class="row">
             <div class="col">
             <p class="perci">
-          {this.state.p1}%
+          
         </p>
             </div>
               <div class="col align-self-end">
               <p class="maxi">
-        {this.state.At}/100000000000000000.
+        
         </p>
                       </div>
             
