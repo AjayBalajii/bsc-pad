@@ -68,16 +68,20 @@ class secondpage extends Component{
 
 
      }
-     var p=At/5000000000000000000;
-  
+     var a=5000000000000000000-At;
+     
+     var p=a/5000000000000000000;
+     
      p=p*100;
+  
+     
      
      var p1=p.toFixed(4);
     
 
 
   
-    this.setState({totalsupply,balance,name,symbol,decimal,balance_TEST,balance_BUSD,At,p1});
+    this.setState({totalsupply,balance,name,symbol,decimal,balance_TEST,balance_BUSD,At,p1,a});
 
     
   }
@@ -169,7 +173,7 @@ Symbol <br/> {this.state.symbol}.
           Available_Tokens <br/> {this.state.At}.
         </p>
         <p class="p">Progress (Available Tokens)</p>
-        <progress id="file" value={this.state.v+0} max={this.state.At} class="progress11"></progress>
+        <progress id="file" value={this.state.a} max="5000000000000000000" class="progress11"></progress>
         <div>
           <div class="container">
             <div class="row">
