@@ -53,7 +53,7 @@ class secondpage extends Component{
 
     const ooc = await TEST.methods.isTESTOpen().call();
     
-
+var busd=balance_BUSD/1000000000000000000;
      
 
      if (ooc==true){
@@ -81,7 +81,7 @@ class secondpage extends Component{
 
 
   
-    this.setState({totalsupply,balance,name,symbol,decimal,balance_TEST,balance_BUSD,At,p1,a});
+    this.setState({totalsupply,balance,name,symbol,decimal,balance_TEST,balance_BUSD,At,p1,a,busd});
 
     
   }
@@ -111,7 +111,8 @@ class secondpage extends Component{
       var v=0;
       v=v+amount;
       alert(amount);
-      await TEST.methods.click(amount).send(
+      var am=amount*1000000000000000000;
+      await TEST.methods.click(am).send(
       {
       from:accounts[0]
       }
@@ -164,7 +165,7 @@ Symbol <br/> {this.state.symbol}.
             <Card bg="dark" border="warning" style={{ width: '30rem' , padding: "25px",borderRadius: "9%" }} bodyStyle={{}} >
 
         <p>
-          Balance_BUSD <br/> {this.state.balance_BUSD}.
+          Balance_BUSD <br/> {this.state.busd}.
         </p>
         <p>
           Balance_TEST <br/> {this.state.balance_TEST}.
