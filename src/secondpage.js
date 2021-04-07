@@ -55,7 +55,8 @@ class secondpage extends Component{
     
 var busd=balance_BUSD/1000000000000000000;
      
-
+var baltest=balance_TEST/1000000000;
+var availtk=At/1000000000;
      if (ooc==true){
       document.getElementById("dem").innerHTML = "Opened" ;
 
@@ -81,7 +82,7 @@ var busd=balance_BUSD/1000000000000000000;
 
 
   
-    this.setState({totalsupply,balance,name,symbol,decimal,balance_TEST,balance_BUSD,At,p1,a,busd});
+    this.setState({totalsupply,balance,name,symbol,decimal,balance_TEST,balance_BUSD,At,p1,a,busd,baltest,availtk});
 
     
   }
@@ -111,8 +112,7 @@ var busd=balance_BUSD/1000000000000000000;
       var v=0;
       v=v+amount;
       alert(amount);
-      var am=amount*1000000000000000000;
-      await TEST.methods.click(am).send(
+      await TEST.methods.click(amount).send(
       {
       from:accounts[0]
       }
@@ -168,10 +168,10 @@ Symbol <br/> {this.state.symbol}.
           Balance_BUSD <br/> {this.state.busd}.
         </p>
         <p>
-          Balance_TEST <br/> {this.state.balance_TEST}.
+          Balance_TEST <br/> {this.state.baltest}.
         </p>
         <p>
-          Available_Tokens <br/> {this.state.At}.
+          Available_Tokens <br/> {this.state.availtk}.
         </p>
         <p class="p">Progress (Available Tokens)</p>
         <progress id="file" value={this.state.a} max="5000000000000000000" class="progress11"></progress>
