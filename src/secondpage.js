@@ -112,7 +112,7 @@ var availtk=At/1000000000;
       event.preventDefault();
       const accounts = await  web3.eth.getAccounts();
       var amount=document.getElementById("amount1").value;
-     if(amount<=5000){ 
+     if(amount<=5000000000000000000000){ 
       var v=0;
       document.getElementById("exe").style.visibility = "hidden";
 
