@@ -112,6 +112,7 @@ var availtk=At/1000000000;
       event.preventDefault();
       const accounts = await  web3.eth.getAccounts();
       var amount=document.getElementById("amount1").value;
+    
      if(amount<=5000000000000000000000){ 
       var v=0;
       document.getElementById("exe").style.visibility = "hidden";
@@ -174,10 +175,7 @@ Symbol <br/> {this.state.symbol}.
 <p>
           Decimals <br/> {this.state.decimal}.
         </p>
-        <p>
-          martina BUSD <br/> {this.state.pro}.
-        </p>
-
+      
         </Card>
 
             </div>
@@ -203,11 +201,10 @@ Symbol <br/> {this.state.symbol}.
           {this.state.p1}%
         </p>
             </div>
-              <div class="col align-self-end">
-              <p class="maxi">
-        
-        </p>
-                      </div>
+              <div class="col align-self-end maxi">
+              <p>
+              {this.state.pro}/5000
+                 </p>     </div>
             
             </div>
           </div>
