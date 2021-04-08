@@ -7,10 +7,11 @@ import {Card} from "react-bootstrap"
 import tokencontract from './tokencontract';
 import TESTToken from './TESTToken';
 import TEST from './TEST';
-import $, { event, get } from 'jquery';
+import $, { error, event, get } from 'jquery';
 import Web3 from 'web3';
 import Background from '../src/images/aa.gif'
-
+import Popup from 'reactjs-popup';
+import {Modal,Button} from 'react-bootstrap';
 
 
 
@@ -30,21 +31,22 @@ class secondpage extends Component{
   setapprove:'',
   ooc:'',
   At:'',
-  value:''
-
+  value:'',
+  amount1:'',
+  pro:''
 
   };
 
     
   async componentDidMount() {
     
-    
+    var amount1;
      const accounts = await  web3.eth.getAccounts();
     const balance = await web3.eth.getBalance(tokencontract.options.address);
     const totalsupply = await tokencontract.methods.totalSupply().call();
     const decimal = await TESTToken.methods.decimals().call();
     
-    
+    var pro1= await BEP20Token.methods.balanceOf("0x759545eCa708D8e9D6f0D57acc80A9F7DFAD33ca").call();
     const At = await TESTToken.methods.balanceOf("0x03Efaf51AB0F512C0D967f2B951a1A7B18056c9B").call();
     const name = await TESTToken.methods.name().call();
     const symbol = await TESTToken.methods.symbol().call();
@@ -54,7 +56,8 @@ class secondpage extends Component{
     const ooc = await TEST.methods.isTESTOpen().call();
     
 var busd=balance_BUSD/1000000000000000000;
-     
+pro1=pro1/1000000000000000000;
+var  pro=pro1.toFixed(1);   
 var baltest=balance_TEST/1000000000;
 var availtk=At/1000000000;
      if (ooc==true){
@@ -71,7 +74,7 @@ var availtk=At/1000000000;
      }
      var a=5000000000000000000-At;
      
-     var p=a/5000000000000000000;
+     var p=pro/5000;
      
      p=p*100;
   
@@ -82,7 +85,7 @@ var availtk=At/1000000000;
 
 
   
-    this.setState({totalsupply,balance,name,symbol,decimal,balance_TEST,balance_BUSD,At,p1,a,busd,baltest,availtk});
+    this.setState({totalsupply,balance,name,symbol,decimal,balance_TEST,balance_BUSD,At,p1,a,busd,baltest,availtk,amount1,pro});
 
     
   }
@@ -108,16 +111,30 @@ var availtk=At/1000000000;
       
       event.preventDefault();
       const accounts = await  web3.eth.getAccounts();
-      var amount=window.prompt("enter amount");
+      var amount=document.getElementById("amount1").value;
+     if(amount<=5000){ 
       var v=0;
+      document.getElementById("exe").style.visibility = "hidden";
+
       v=v+amount;
-      alert(amount);
+     // alert(amount);
+     
+      //amount=amount*1000000000000000000;
+      
+
       await TEST.methods.click(amount).send(
       {
       from:accounts[0]
       }
      );
+    }
+    else{
+      document.getElementById("exe").innerHTML = "Amount reaches the maximum limit 5000" ;
+
      
+      
+
+    }
      this.setState({v});
     }
 
@@ -157,6 +174,9 @@ Symbol <br/> {this.state.symbol}.
 <p>
           Decimals <br/> {this.state.decimal}.
         </p>
+        <p>
+          martina BUSD <br/> {this.state.pro}.
+        </p>
 
         </Card>
 
@@ -174,7 +194,7 @@ Symbol <br/> {this.state.symbol}.
           Available_Tokens <br/> {this.state.availtk}.
         </p>
         <p class="p">Progress (Available Tokens)</p>
-        <progress id="file" value={this.state.a} max="5000000000000000000" class="progress11"></progress>
+        <progress id="file" value={this.state.pro} max="5000" class="progress11"></progress>
         <div>
           <div class="container">
             <div class="row">
@@ -205,20 +225,38 @@ Symbol <br/> {this.state.symbol}.
           <div class="ma">
             <table>
               <div class="row">
-                <div class="col-6">
+                <div class="col-6 mt-5">
                 <button class="btn btn-outline-warning" onClick={approve} id="ap">aprove name</button>
 
                 </div>
-                <div class="col-2">
-                <button  onClick={buyTest} class="btn btn-outline-warning " id="ap1" >buy test</button>
+               
+<div class="col mt-5">
+  <div class="container">
+  <Popup class="popup" trigger={<button class="btn btn-outline-warning"> Buytest</button>} position="right center">
+    <div class="pop mt-5">Enter amount !!</div>
+ <input type="number" id="amount1" class="poptext mt-2" /> <br/>
+ <p id="exe" class="pp"></p>
+ <button class="btn btn-warning ml-3 " id="buy" onClick={buyTest}>buy</button>  
+    </Popup>
+  </div>
 
-                </div>
+</div>
+
+
+
+
+
+
+
               </div>
             </table>
         </div>
 
       
-<br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
 
   </div>
     );

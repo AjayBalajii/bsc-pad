@@ -95,3 +95,16 @@ body{
 .ma{
   margin-left: 50px
 }
+.pop{
+  margin-left: 10px;
+  margin-top: 20px;
+  color: white;
+}
+.poptext{
+  margin-left: 10px;
+
+  border-color: #26f674;
+}
+.popup{
+  margin-left: 50%;
+}
