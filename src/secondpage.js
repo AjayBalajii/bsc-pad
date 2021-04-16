@@ -59,7 +59,7 @@ class secondpage extends Component{
 
     const ooc = await TEST.methods.isSLATEOpen().call();
     
-var busd=balance_BUSD/1000000000000000000;
+//var busd=balance_BUSD/1000000000000000000;
 pro1=pro1/1000000000000000000;
 var  pro=pro1.toFixed(1);   
 var baltest=balance_TEST/1000000000;
@@ -89,7 +89,7 @@ var availtk=At/1000000000;
 
 
   
-    this.setState({totalsupply,balance,name,symbol,decimal,balance_TEST,balance_BUSD,At,p1,a,busd,baltest,availtk,amount1,pro});
+    this.setState({totalsupply,balance,name,symbol,decimal,balance_TEST,balance_BUSD,At,p1,a,baltest,availtk,amount1,pro});
 
     
   }
@@ -196,7 +196,7 @@ Symbol</span> <br/> {this.state.symbol}.
             < Card style={{backgroundColor:"#fa3455", width: '100%' , padding: "25px"}} class="card11" bodyStyle={{}} >
 
         <p>
-        <span class="tt"> Balance_BUSD </span><br/> {this.state.busd}.
+        <span class="tt"> Balance_BUSD </span><br/> {this.state. balance_BUSD}.
         </p>
         <p>
         <span class="tt">    Balance_TEST </span><br/> {this.state.baltest}.
