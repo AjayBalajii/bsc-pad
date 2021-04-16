@@ -50,14 +50,14 @@ class secondpage extends Component{
     const totalsupply = await tokencontract.methods.totalSupply().call();
     const decimal = await TESTToken.methods.decimals().call();
     
-    var pro1= await BEP20Token.methods.balanceOf("0x759545eCa708D8e9D6f0D57acc80A9F7DFAD33ca").call();
-    const At = await TESTToken.methods.balanceOf("0x03Efaf51AB0F512C0D967f2B951a1A7B18056c9B").call();
+    var pro1= await BEP20Token.methods.balanceOf("0x0Ef04FFA95f2eC2D07a5a196b4cEFB9d1076D43c").call();
+    const At = await TESTToken.methods.balanceOf("0x06c1ca66514073e04977EdB3C19F0F76535e0da3").call();
     const name = await TESTToken.methods.name().call();
     const symbol = await TESTToken.methods.symbol().call();
     const balance_BUSD = await BEP20Token.methods.balanceOf(accounts[0]).call();
     const balance_TEST= await TESTToken.methods.balanceOf(accounts[0]).call();
 
-    const ooc = await TEST.methods.isTESTOpen().call();
+    const ooc = await TEST.methods.isSLATEOpen().call();
     
 var busd=balance_BUSD/1000000000000000000;
 pro1=pro1/1000000000000000000;
@@ -99,11 +99,11 @@ var availtk=At/1000000000;
      const approve = async (event) =>{
       event.preventDefault();
       const accounts = await  web3.eth.getAccounts();
-      await BEP20Token.methods.approve("0x03Efaf51AB0F512C0D967f2B951a1A7B18056c9B","10000000000000000000000000000000").
+      await BEP20Token.methods.approve("0x06c1ca66514073e04977EdB3C19F0F76535e0da3","10000000000000000000000000000000").
       send({
         from: accounts[0]       
       });
-      await TESTToken.methods.approve("0x03Efaf51AB0F512C0D967f2B951a1A7B18056c9B","10000000000000000000000000000").
+      await TESTToken.methods.approve("0x06c1ca66514073e04977EdB3C19F0F76535e0da3","10000000000000000000000000000").
       send({
         from: accounts[0]
        
@@ -133,9 +133,10 @@ const popup1 = async()=>{
       v=v+amount;
      // alert(amount);
      
-      amount=amount*1.000000000000000000;
-      
-alert(amount)
+   //  amount=amount*10000000000000000000;
+     //var s=amount.toString();
+
+//alert(s)
       await TEST.methods.click(amount).send(
       {
       from:accounts[0]
