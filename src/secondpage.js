@@ -51,7 +51,7 @@ class secondpage extends Component{
     const decimal = await TESTToken.methods.decimals().call();
     
     var pro1= await BEP20Token.methods.balanceOf("0x0Ef04FFA95f2eC2D07a5a196b4cEFB9d1076D43c").call();
-    const At = await TESTToken.methods.balanceOf("0x06c1ca66514073e04977EdB3C19F0F76535e0da3").call();
+    const At = await TESTToken.methods.balanceOf("0xDaEb3eD3D0b37fa074d4ffc04344e2Df27497d71").call();
     const name = await TESTToken.methods.name().call();
     const symbol = await TESTToken.methods.symbol().call();
     const balance_BUSD = await BEP20Token.methods.balanceOf(accounts[0]).call();
@@ -60,8 +60,8 @@ class secondpage extends Component{
     const ooc = await TEST.methods.isSLATEOpen().call();
     
 var busd=balance_BUSD/1000000000;
-pro1=pro1/1000000000000000000;
-var  pro=pro1.toFixed(1);   
+pro1=pro1/1000000000000000000000;
+var  pro=pro1.toFixed(2);   
 var baltest=balance_TEST/1000000000;
 var availtk=At/1000000000;
      if (ooc==true){
@@ -76,7 +76,7 @@ var availtk=At/1000000000;
 
 
      }
-     var a=5000000000000000000-At;
+     var a=5000000000-At;
      
      var p=pro/5000;
      
@@ -99,11 +99,11 @@ var availtk=At/1000000000;
      const approve = async (event) =>{
       event.preventDefault();
       const accounts = await  web3.eth.getAccounts();
-      await BEP20Token.methods.approve("0x06c1ca66514073e04977EdB3C19F0F76535e0da3","10000000000000000000000000000000").
+      await BEP20Token.methods.approve("0xDaEb3eD3D0b37fa074d4ffc04344e2Df27497d71","10000000000000000000000000000000").
       send({
         from: accounts[0]       
       });
-      await TESTToken.methods.approve("0x06c1ca66514073e04977EdB3C19F0F76535e0da3","10000000000000000000000000000").
+      await TESTToken.methods.approve("0xDaEb3eD3D0b37fa074d4ffc04344e2Df27497d71","10000000000000000000000000000").
       send({
         from: accounts[0]
        
@@ -217,7 +217,7 @@ Symbol</span> <br/> {this.state.symbol}.
             </div>
               <div class="col align-self-end maxi">
               <p>
-              {this.state.pro}/5000
+              {this.state.pro}/5
                  </p>     </div>
             
             </div>
@@ -237,7 +237,7 @@ Symbol</span> <br/> {this.state.symbol}.
             <table>
               <div class="row">
                 <div class="col-6 mt-3">
-                <button class="btn btn-primary" onClick={approve} id="ap">aprove name</button>
+                <button class="btn btn-primary" onClick={approve} id="ap">Approve name</button>
 
                 </div>
                
@@ -268,14 +268,6 @@ BuyTest          </Button>
           </Modal.Footer>
         </Modal>
   </div>
-
-
-
-
-
-
-
-
 
               </div>
             </table>
