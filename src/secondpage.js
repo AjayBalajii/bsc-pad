@@ -60,7 +60,7 @@ class secondpage extends Component{
 
     const ooc = await TEST.methods.isSLATEOpen().call();
     
-var busd=balance_BUSD/1000000000;
+var busd=balance_BUSD/1000000000000000000;
 pro1=pro1/1000000000000000000;
 var  pro=pro1.toFixed(2);   
 var baltest=balance_TEST/1000000000;
