@@ -104,7 +104,7 @@ var x = setInterval(function() {
     const name = await TESTToken.methods.name().call();
 
     var pro1= await BEP20Token.methods.balanceOf("0x0Ef04FFA95f2eC2D07a5a196b4cEFB9d1076D43c").call();
-    const At = await TESTToken.methods.balanceOf("0x6F96b5F3441D99d91E5b1adD01617c82281e2Db1").call();
+    const At = await TESTToken.methods.balanceOf("0xa09115563C025c6Ab63aA7AC0B13d52Ef4Ae0D7c").call();
     const symbol = await TESTToken.methods.symbol().call();
     const balance_BUSD = await BEP20Token.methods.balanceOf(accounts[0]).call();
     const balance_TEST= await TESTToken.methods.balanceOf(accounts[0]).call();
@@ -149,11 +149,11 @@ var availtk=At/1000000000;
      const approve = async (event) =>{
       event.preventDefault();
       const accounts = await  web3.eth.getAccounts();
-      await BEP20Token.methods.approve("0x6F96b5F3441D99d91E5b1adD01617c82281e2Db1","10000000000000000000000000000000").
+      await BEP20Token.methods.approve("0xa09115563C025c6Ab63aA7AC0B13d52Ef4Ae0D7c","10000000000000000000000000000000").
       send({
         from: accounts[0]       
       });
-      await TESTToken.methods.approve("0x6F96b5F3441D99d91E5b1adD01617c82281e2Db1","10000000000000000000000000000").
+      await TESTToken.methods.approve("0xa09115563C025c6Ab63aA7AC0B13d52Ef4Ae0D7c","10000000000000000000000000000").
       send({
         from: accounts[0]
        
