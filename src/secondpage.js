@@ -133,7 +133,7 @@ var availtk=At/1000000000;
      p=p*100;
     var p1=p.toFixed(6);
 
-    if(a==5){
+    if(a==3){
       document.getElementById("dem").innerHTML="Closed";
       document.getElementById("demo").style.visibility="hidden";
       document.getElementById("ap").disabled=true;
@@ -205,7 +205,8 @@ const popup1 = async()=>{
       
 
     }
-     this.setState({v});
+    window.location.reload();
+    this.setState({v});
     }
 
     
