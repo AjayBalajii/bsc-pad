@@ -131,9 +131,10 @@ var availtk=At/1000000000;
     var p1=p.toFixed(6);
 
     if(a==5){
-      document.getElementById("dem").innerHTML="Closed";
-      document.getElementById("ap").disabled="true";
-      document.getElementById("ap1").disabled="true";
+      document.getElementById("dem").style.visibility="hidden";
+      document.getElementById("demo").innerHTML="Closed";
+      document.getElementById("ap").disabled=true;
+      document.getElementById("ap1").disabled=true;
 
     }
   
