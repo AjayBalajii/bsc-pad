@@ -68,16 +68,7 @@ var x = setInterval(function() {
   if(distance<0){
     clearInterval(x);
     document.getElementById("dem").innerHTML = "opened" ;
-    document.getElementById("main1").style.visibility="visible";
-    document.getElementById("main2").style.visibility="visible";
-    document.getElementById("main3").style.visibility="visible";
-    document.getElementById("main4").style.visibility="visible";
-    document.getElementById("main5").style.visibility="visible";
-    document.getElementById("main6").style.visibility="visible";
-    document.getElementById("main7").style.visibility="visible";
-    document.getElementById("main8").style.visibility="visible";
-    document.getElementById("main").style.visibility="visible";
-
+    
     document.getElementById("demo").style.visibility="hidden";
     document.getElementById("demo1").style.visibility="hidden";
     document.getElementById("ap").disabled = false;
@@ -92,15 +83,7 @@ var x = setInterval(function() {
      document.getElementById("dem").innerHTML = "closed";
      document.getElementById("ap").disabled = true;
      document.getElementById("ap1").disabled=true;
-     document.getElementById("main").style.visibility="hidden";
-     document.getElementById("main1").style.visibility="hidden";
-     document.getElementById("main2").style.visibility="hidden";
-     document.getElementById("main3").style.visibility="hidden";
-     document.getElementById("main4").style.visibility="hidden";
-     document.getElementById("main5").style.visibility="hidden";
-     document.getElementById("main6").style.visibility="hidden";
-     document.getElementById("main7").style.visibility="hidden";
-     document.getElementById("main8").style.visibility="hidden";
+     
      document.getElementById("demo").style.visibility="visible";
 
 
