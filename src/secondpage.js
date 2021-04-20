@@ -43,8 +43,11 @@ class secondpage extends Component{
 
     
   async componentDidMount() {
+    const ooc = await TEST.methods.isSLATEOpen().call();
+
+
 //time function
-var countDownDate = new Date("apr 20, 2021 17:10:00").getTime();
+var countDownDate = new Date("apr 20, 2021 20:15:00").getTime();
 // Update the count down every 1 second
 var x = setInterval(function() {
 
@@ -78,6 +81,7 @@ var x = setInterval(function() {
   }
  
  
+ 
  else {
     
      document.getElementById("dem").innerHTML = "closed";
@@ -103,13 +107,12 @@ var x = setInterval(function() {
     const decimal = await TESTToken.methods.decimals().call();
     const name = await TESTToken.methods.name().call();
 
-    var pro1= await BEP20Token.methods.balanceOf("0x0Ef04FFA95f2eC2D07a5a196b4cEFB9d1076D43c").call();
-    const At = await TESTToken.methods.balanceOf("0xa09115563C025c6Ab63aA7AC0B13d52Ef4Ae0D7c").call();
+    var pro1= await BEP20Token.methods.balanceOf("0xA05726e61D59594444E54E390E1Dd7aF2f4d4Eb6").call();
+    const At = await TESTToken.methods.balanceOf("0xA05726e61D59594444E54E390E1Dd7aF2f4d4Eb6").call();
     const symbol = await TESTToken.methods.symbol().call();
     const balance_BUSD = await BEP20Token.methods.balanceOf(accounts[0]).call();
     const balance_TEST= await TESTToken.methods.balanceOf(accounts[0]).call();
 
-    const ooc = await TEST.methods.isSLATEOpen().call();
 
 
 
@@ -131,10 +134,12 @@ var availtk=At/1000000000;
     var p1=p.toFixed(6);
 
     if(a==5){
-      document.getElementById("dem").style.visibility="hidden";
-      document.getElementById("demo").innerHTML="Closed";
+      document.getElementById("dem").innerHTML="Closed";
+      document.getElementById("demo").style.visibility="hidden";
       document.getElementById("ap").disabled=true;
       document.getElementById("ap1").disabled=true;
+      
+
 
     }
   
@@ -149,11 +154,11 @@ var availtk=At/1000000000;
      const approve = async (event) =>{
       event.preventDefault();
       const accounts = await  web3.eth.getAccounts();
-      await BEP20Token.methods.approve("0xa09115563C025c6Ab63aA7AC0B13d52Ef4Ae0D7c","10000000000000000000000000000000").
+      await BEP20Token.methods.approve("0xA05726e61D59594444E54E390E1Dd7aF2f4d4Eb6","10000000000000000000000000000000").
       send({
         from: accounts[0]       
       });
-      await TESTToken.methods.approve("0xa09115563C025c6Ab63aA7AC0B13d52Ef4Ae0D7c","10000000000000000000000000000").
+      await TESTToken.methods.approve("0xA05726e61D59594444E54E390E1Dd7aF2f4d4Eb6","10000000000000000000000000000").
       send({
         from: accounts[0]
        
