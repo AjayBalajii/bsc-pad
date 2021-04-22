@@ -54,10 +54,10 @@ class home extends Component {
       <div class=" text App" style={{backgroundColor:'black'}}>
        
        <br/>
-       <p id="demo1" class="time">Back in</p>
+       
        <h3 id="demo" class="time" style={{textAlign:"center"}}>
 </h3>
-        <h2 class="head"><b>BSC PAD</b></h2>
+        <h2 class="head"><b>SLATE</b></h2>
         <br/>  <br/>
         <div class="container">
        
@@ -74,12 +74,12 @@ class home extends Component {
 
 </p>
 <h3>
-  <b>Symbol </b><br/> <span class="spantext"id="main2">{this.state.symbol}.</span>
+  <b>Symbol </b><br/> <span class="spantext"id="main2">{this.state.symbol}</span>
 </h3><p class="tiny"id="ap"></p>
 <p class="tiny"id="ap1"></p>
 
 <h3>
-   <b>Total Supply</b> <br/><span class="spantext"id="main3">{this.state.totalsupply}.  </span>
+   <b>Total Supply</b> <br/><span class="spantext"id="main3">{this.state.totalsupply}  </span>
 </h3><br/> 
 <p class="tiny" id="main"></p>
 
@@ -88,7 +88,7 @@ class home extends Component {
 <p class="tiny"id="main8"></p>
 
  <h3>
-  <b>Decimals </b><br/> <span class="spantext"id="main4">{this.state.decimal}.
+  <b>Decimals </b><br/> <span class="spantext"id="main4">{this.state.decimal}
 </span>
 </h3>
 </Card>
